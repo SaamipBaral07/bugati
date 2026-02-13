@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -63,24 +64,29 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 px-4 py-3 transition-all duration-300 ease-in-out md:py-4 ${
+      className={`sticky top-0 z-50 px-4 py-3 transition-all duration-300 ease-in-out md:py-5 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-2xl border border-amber-100/20 bg-white/95 px-4 py-4 shadow-xl shadow-black/5 backdrop-blur-md md:rounded-full md:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-2xl border border-amber-100/20 bg-white/95 px-4 py-5 shadow-xl shadow-black/5 backdrop-blur-md md:rounded-full md:px-8 md:py-4">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-3">
           <div className="relative">
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 opacity-20 blur-sm transition-opacity group-hover:opacity-30"></div>
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-lg border border-amber-200 bg-gradient-to-br from-amber-50 to-white shadow-sm">
-              <span className="text-xl font-bold text-amber-600">DB</span>
-            </div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 opacity-20 blur-md transition-opacity group-hover:opacity-40"></div>
+            <Image
+              src="/images/logo.png"
+              alt="DJ Bugati"
+              width={64}
+              height={64}
+              className="relative rounded-full border-2 border-amber-200/60 shadow-lg transition-transform duration-300 group-hover:scale-105"
+              priority
+            />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-xl font-bold tracking-wide text-gray-900">
+            <span className="font-serif text-xl font-bold tracking-wide text-gray-900 md:text-2xl">
               DJ Bugati
             </span>
-            <span className="text-[10px] font-light tracking-widest text-amber-600">
+            <span className="text-[10px] font-light tracking-widest text-amber-600 md:text-xs">
               Feel the Beat
             </span>
           </div>

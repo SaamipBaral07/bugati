@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FadeUp } from "@/components/Motion";
+import { Instagram, Youtube, Music, Music2 } from "lucide-react";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -116,27 +117,34 @@ export default function ContactPage() {
                 Social Links
               </h3>
 
-              <div className="mt-4 flex flex-col gap-3 text-sm">
+              <div className="mt-4 flex gap-4">
                 <a
                   href="https://www.instagram.com/dj.bugati/"
                   target="_blank"
-                  className="text-neutral-700 hover:text-neutral-900"
+                  rel="noopener noreferrer"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-[#E4405F] text-[#E4405F] transition-all hover:bg-[#E4405F] hover:text-white"
+                  title="Instagram"
                 >
-                  Instagram — @dj.bugati
+                  <Instagram size={20} />
                 </a>
                 <a
                   href="https://www.youtube.com/@djbugati-yr8th"
                   target="_blank"
-                  className="text-neutral-700 hover:text-neutral-900"
+                  rel="noopener noreferrer"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-[#FF0000] text-[#FF0000] transition-all hover:bg-[#FF0000] hover:text-white"
+                  title="YouTube"
                 >
-                  YouTube — DJ Bugati
+                  <Youtube size={20} />
                 </a>
+             
                 <a
-                  href="https://soundcloud.com/dj-bugati-573058270"
+                  href="https://www.tiktok.com/@dj.bugati"
                   target="_blank"
-                  className="text-neutral-700 hover:text-neutral-900"
+                  rel="noopener noreferrer"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-[#000000] text-[#000000] transition-all hover:bg-[#000000] hover:text-white"
+                  title="TikTok"
                 >
-                  SoundCloud — DJ Bugati
+                  <Music2 size={20} />
                 </a>
               </div>
             </div>
