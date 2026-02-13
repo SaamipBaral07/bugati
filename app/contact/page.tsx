@@ -59,13 +59,13 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16">
+    <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
       <FadeUp>
         <p className="text-sm font-medium tracking-widest text-neutral-500">
           BOOKINGS & ENQUIRIES
         </p>
 
-        <h1 className="mt-3 text-4xl font-semibold text-neutral-900 md:text-5xl">
+        <h1 className="mt-3 text-3xl font-semibold text-neutral-900 sm:text-4xl md:text-5xl">
           Contact DJ Bugati
         </h1>
 
@@ -76,10 +76,10 @@ export default function ContactPage() {
         </p>
       </FadeUp>
 
-      <div className="mt-12 grid gap-10 lg:grid-cols-2">
+      <div className="mt-8 grid gap-6 sm:mt-12 sm:gap-10 lg:grid-cols-2">
         {/* Left: Contact + Socials */}
         <FadeUp delay={0.05}>
-          <div className="rounded-3xl border border-neutral-200 bg-white p-8 shadow-sm">
+          <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm sm:rounded-3xl sm:p-8">
             <h2 className="text-2xl font-semibold text-neutral-900">
               Quick Contact
             </h2>
@@ -158,7 +158,7 @@ export default function ContactPage() {
         <FadeUp delay={0.1}>
           <form
             onSubmit={handleSubmit}
-            className="space-y-5 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm md:p-10"
+            className="space-y-5 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm sm:rounded-3xl md:p-10"
           >
             {/* Honeypot */}
             <div className="hidden">

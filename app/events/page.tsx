@@ -51,14 +51,14 @@ const EVENTS = [
 
 export default function EventsPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16">
+    <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
       {/* Header */}
       <div className="max-w-3xl">
         <p className="text-sm font-medium tracking-widest text-neutral-500">
           EVENTS
         </p>
 
-        <h1 className="mt-3 text-4xl font-semibold text-neutral-900 md:text-5xl">
+        <h1 className="mt-3 text-3xl font-semibold text-neutral-900 sm:text-4xl md:text-5xl">
           Events DJ Bugati Performs
         </h1>
 
@@ -87,11 +87,11 @@ export default function EventsPage() {
       </div>
 
       {/* Event Cards */}
-      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
         {EVENTS.map((e) => (
           <div
             key={e.title}
-            className="group rounded-3xl border border-neutral-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md"
+            className="group rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md sm:rounded-3xl sm:p-7"
           >
             {/* Image Placeholder */}
             <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50">
@@ -132,7 +132,7 @@ export default function EventsPage() {
       </div>
 
       {/* Bottom CTA Section */}
-      <div className="mt-16 overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-50 p-10">
+      <div className="mt-10 overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50 p-6 sm:mt-16 sm:rounded-3xl sm:p-10">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div>
             <h3 className="text-2xl font-semibold text-neutral-900">

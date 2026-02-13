@@ -20,8 +20,20 @@ export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
+      // Keep header visible when mobile menu is open
+      if (open) {
+        setIsVisible(true);
+        setLastScrollY(window.scrollY);
+        return;
+      }
+
       const currentScrollY = window.scrollY;
 
       if (currentScrollY < 50) {
@@ -41,7 +53,7 @@ export default function Header() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, open]);
 
   // Active route checker (supports nested routes)
   const isActive = (href: string) => {

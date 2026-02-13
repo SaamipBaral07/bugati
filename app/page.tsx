@@ -10,13 +10,13 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#00000010,transparent_55%)]" />
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 md:grid-cols-2 md:py-24">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-black/50">
               Perth, Australia
             </p>
 
-            <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
+            <h1 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl md:text-6xl">
               DJ Bugati
               <span className="block text-black/60">
                 Luxury sound. Clean energy.
@@ -58,24 +58,50 @@ export default function HomePage() {
 
       {/* About */}
       <MotionWrap>
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <div className="grid gap-10 md:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
+        <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div>
-            <h2 className="text-2xl font-semibold md:text-3xl">
-              About DJ Bugati
-            </h2>
-            <p className="mt-4 text-black/60">
-              DJ Bugati is a Perth-based DJ known for clean transitions, premium
-              sound, and reading the room perfectly. Whether it’s a wedding
-              reception or a high-energy birthday celebration, every set is
-              tailored to the event.
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-black/40">
+              About
             </p>
 
-            <div className="mt-6 space-y-3 text-sm text-black/60">
-              <p>• Wedding receptions & afterparties</p>
-              <p>• Corporate events & brand nights</p>
-              <p>• Birthdays, private parties & club sets</p>
+            <h2 className="mt-3 text-3xl font-semibold leading-snug sm:text-4xl md:text-5xl">
+              About DJ Bugati
+            </h2>
+
+            <p className="mt-6 text-base leading-relaxed text-black/60 text-justify md:text-lg">
+              DJ Bugati is a Perth-based DJ known for clean transitions, premium
+              sound, and reading the room perfectly. Whether it is a wedding
+              reception or a high-energy birthday celebration, every set is
+              tailored to the event and crafted for an unforgettable experience.
+            </p>
+
+            <div className="mt-8 space-y-4">
+              {[
+                "Wedding receptions & afterparties",
+                "Corporate events & brand nights",
+                "Birthdays, private parties & club sets",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-black">
+                    <svg className="h-3.5 w-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-base text-black/70 md:text-lg">{item}</span>
+                </div>
+              ))}
             </div>
+
+            <Link
+              href="/contact"
+              className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-black hover:text-black/70"
+            >
+              Get in touch
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
           </div>
 
           <ImageBox label="About Image" className="aspect-[16/11] w-full"
@@ -89,10 +115,13 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 pb-20">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-semibold md:text-3xl">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-black/40">
+              Services
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl md:text-5xl">
               Events DJ Bugati Plays
             </h2>
-            <p className="mt-3 max-w-2xl text-black/60">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-black/60 text-justify md:text-lg">
               From luxury weddings to corporate functions — DJ Bugati delivers a
               premium atmosphere and a packed dancefloor.
             </p>
@@ -148,10 +177,13 @@ export default function HomePage() {
       {/* Testimonials */}
       <MotionWrap>
       <section className="mx-auto max-w-6xl px-4 pb-20">
-        <h2 className="text-2xl font-semibold md:text-3xl">
+        <p className="text-xs font-medium uppercase tracking-[0.3em] text-black/40">
+          Testimonials
+        </p>
+        <h2 className="mt-3 text-3xl font-semibold sm:text-4xl md:text-5xl">
           Reviews from Clients
         </h2>
-        <p className="mt-3 max-w-2xl text-black/60">
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-black/60 md:text-lg">
           Real feedback from weddings, birthdays, and corporate events in Perth.
         </p>
 
@@ -181,7 +213,7 @@ export default function HomePage() {
           ].map((r) => (
             <div
               key={r.name}
-              className="group relative rounded-3xl border border-black/10 bg-gradient-to-br from-white to-black/[0.02] p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="group relative rounded-2xl border border-black/10 bg-gradient-to-br from-white to-black/[0.02] p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:rounded-3xl sm:p-8"
             >
               {/* Quote icon */}
               <div className="absolute right-8 top-8 text-6xl leading-none text-black/5">
@@ -229,11 +261,14 @@ export default function HomePage() {
       {/* CTA */}
       <MotionWrap>
       <section className="mx-auto max-w-6xl px-4 pb-24">
-        <div className="rounded-[2.5rem] border border-black/10 bg-black px-8 py-14 text-white md:px-14">
-          <h2 className="text-2xl font-semibold md:text-3xl">
+        <div className="rounded-[1.5rem] border border-black/10 bg-black px-6 py-10 text-center text-white sm:rounded-[2.5rem] sm:px-8 sm:py-14 md:px-14">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/40">
+            Ready?
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold sm:text-3xl md:text-4xl">
             Book DJ Bugati for your event
           </h2>
-          <p className="mt-3 max-w-2xl text-white/70">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-white/60 md:text-lg">
             Fill out the enquiry form and you’ll receive a response within 24
             hours.
           </p>

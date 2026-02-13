@@ -21,6 +21,10 @@ export const metadata = {
     "DJ Bugati is a professional DJ based in Perth, Australia. Book DJ Bugati for weddings, birthdays, corporate events, and private parties.",
 };
 
+export const viewport = {
+  colorScheme: "light" as const,
+};
+
 export default function RootLayout({
   children,
 }: {

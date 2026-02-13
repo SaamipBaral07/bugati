@@ -37,18 +37,18 @@ export default function GalleryPage() {
   }, [activeIndex]);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16">
-      <h1 className="text-3xl font-semibold md:text-4xl">Gallery</h1>
+    <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
+      <h1 className="text-2xl font-semibold sm:text-3xl md:text-4xl">Gallery</h1>
       <p className="mt-3 max-w-2xl text-black/60">
         Moments from weddings, birthdays and events across Perth.
       </p>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <div className="mt-6 grid gap-3 grid-cols-2 sm:mt-10 sm:gap-4 md:grid-cols-3">
         {galleryImages.map((src, i) => (
           <button
             key={src}
             onClick={() => open(i)}
-            className="group relative aspect-square overflow-hidden rounded-3xl border border-black/10 bg-black/5"
+            className="group relative aspect-square overflow-hidden rounded-2xl border border-black/10 bg-black/5 sm:rounded-3xl"
           >
             <Image
               src={src}
