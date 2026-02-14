@@ -44,13 +44,13 @@ const EVENTS = [
     title: "Nightclub & Lounge",
     desc: "Premium club sets featuring Afro, RnB, and House at Perth's finest venues and lounges.",
     features: ["Club Residencies", "Guest Appearances", "Lounge Sets", "Late Night Vibes"],
-    image: "/images/clubb-dj.jpg",
+    image: "/images/nightclub.jpg",
   },
   {
     title: "Live Shows",
     desc: "Stage-ready performances for ticketed events and festivals across Western Australia.",
     features: ["Festival Sets", "Concert Appearances", "Artist Collaborations", "Stage Production"],
-    image: "/images/bugati-1.jpg",
+    image: "/images/bugati4.png",
   },
   {
     title: "Engagements",
@@ -106,13 +106,13 @@ export default function EventsPage() {
 
             {/* Image side — fully visible, no overlay */}
             <MotionWrap delay={0.15}>
-              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl sm:aspect-square md:max-h-[420px] md:rounded-3xl lg:max-h-[480px]">
+              <div className="group relative aspect-[3/4] w-full overflow-hidden rounded-2xl sm:aspect-square md:max-h-[420px] md:rounded-3xl lg:max-h-[480px]">
                 <Image
                   src="/images/bugati-2.jpg"
                   alt="DJ Bugati performing"
                   fill
                   priority
-                  className="object-cover object-top"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
@@ -129,12 +129,12 @@ export default function EventsPage() {
           <div className="overflow-hidden rounded-3xl bg-neutral-50 md:rounded-[2rem]">
             <div className="grid items-stretch md:grid-cols-2">
               {/* Image side */}
-              <div className="relative aspect-[4/3] md:aspect-auto">
+              <div className="group relative aspect-[4/3] md:aspect-auto">
                 <Image
                   src={FEATURED_EVENT.image}
                   alt={FEATURED_EVENT.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 {/* Subtle gradient overlay on mobile for legibility */}
