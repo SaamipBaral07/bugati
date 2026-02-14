@@ -1,11 +1,14 @@
 export const galleryImages = [
-  "/gallery/1.jpg",
-  "/gallery/2.jpg",
-  "/gallery/3.avif",
-  "/gallery/4.jpg",
-  "/gallery/5.jpg",
-  "/gallery/6.jpg",
-  "/gallery/7.jpg",
-  "/gallery/8.png",
+  "/gallery/dd.jpeg",
+  "/gallery/a.jpg",
+  
+  "/gallery/b.jpg",
+  "/gallery/c.jpg",
+    "/gallery/f.jpg",
+  "/gallery/e.jpg",
+
+  "/gallery/g.jpg",
+  "/gallery/h.jpg",
+  "/gallery/II.jpg",
   
 ];
