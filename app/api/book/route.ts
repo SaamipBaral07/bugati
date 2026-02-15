@@ -103,7 +103,78 @@ if (seconds < 3) return NextResponse.json({ error: "Spam detected" }, { status: 
       `,
     };
 
+    const mailToCustomer = {
+      from: `"DJ Bugati" <${process.env.SMTP_EMAIL}>`,
+      to: email,
+      subject: "We Received Your Enquiry — DJ Bugati Perth",
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+          <h2 style="color: #1a1a1a;">Thank You, ${fullName}!</h2>
+          
+          <p>We've received your booking enquiry and really appreciate you reaching out to DJ Bugati.</p>
+          
+          <p><strong>We will review your details and contact you within 24 hours</strong> to discuss your event and answer any questions you may have.</p>
+          
+          <h3 style="margin-top: 30px; color: #1a1a1a; border-bottom: 2px solid #fbbf24; padding-bottom: 10px;">Submission Details</h3>
+          
+          <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background-color: #f9fafb;">
+              <td style="padding: 12px; font-weight: bold; width: 150px;">Full Name:</td>
+              <td style="padding: 12px;">${fullName}</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold;">Email:</td>
+              <td style="padding: 12px;">${email}</td>
+            </tr>
+            <tr style="background-color: #f9fafb;">
+              <td style="padding: 12px; font-weight: bold;">Phone:</td>
+              <td style="padding: 12px;">${phone || "Not provided"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold;">Event Type:</td>
+              <td style="padding: 12px;">${eventType}</td>
+            </tr>
+            <tr style="background-color: #f9fafb;">
+              <td style="padding: 12px; font-weight: bold;">Event Date:</td>
+              <td style="padding: 12px;">${eventDate}</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold;">Location:</td>
+              <td style="padding: 12px;">${location || "Not provided"}</td>
+            </tr>
+            <tr style="background-color: #f9fafb;">
+              <td style="padding: 12px; font-weight: bold;">Guests:</td>
+              <td style="padding: 12px;">${guests || "Not provided"}</td>
+            </tr>
+          </table>
+          
+          ${message ? `
+            <h3 style="margin-top: 30px; color: #1a1a1a; border-bottom: 2px solid #fbbf24; padding-bottom: 10px;">Your Message</h3>
+            <p style="background-color: #f9fafb; padding: 15px; border-left: 4px solid #fbbf24; border-radius: 4px;">
+              ${message.replace(/\n/g, "<br/>")}
+            </p>
+          ` : ""}
+          
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;" />
+          
+          <p style="color: #666; font-size: 14px;">
+            <strong>What's next?</strong><br/>
+            DJ Bugati will reach out to discuss your event details, availability, music preferences, and any special requirements. We look forward to making your event unforgettable!
+          </p>
+          
+          <p style="margin-top: 20px; color: #666; font-size: 12px;">
+            <strong>DJ Bugati Perth</strong><br/>
+            Professional DJ Services | Weddings • Corporate Events • Parties<br/>
+            <a href="https://www.instagram.com/dj.bugati/" style="color: #1f2937; text-decoration: none;">Instagram</a> | 
+            <a href="https://www.youtube.com/@djbugati-yr8th" style="color: #1f2937; text-decoration: none;">YouTube</a> | 
+            <a href="https://www.tiktok.com/@dj.bugati" style="color: #1f2937; text-decoration: none;">TikTok</a>
+          </p>
+        </div>
+      `,
+    };
+
     await transporter.sendMail(mailToDJ);
+    await transporter.sendMail(mailToCustomer);
 
     return Response.json({ success: true });
   } catch (err) {

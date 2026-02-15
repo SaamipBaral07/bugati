@@ -230,9 +230,9 @@ export default function SocialsPage() {
             </p>
           </div>
 
-          {/* Mobile: Clean link cards (no heavy iframes) */}
+          {/* Mobile: Show first 3 posts only (1 column, clean cards) */}
           <div className="grid gap-3 sm:grid-cols-2 md:hidden">
-            {IG_POSTS.map((url, idx) => (
+            {IG_POSTS.slice(0, 3).map((url, idx) => (
               <a
                 key={url}
                 href={url}
@@ -246,8 +246,8 @@ export default function SocialsPage() {
                   </svg>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm font-semibold text-black">Instagram Post #{idx + 1}</p>
-                  <p className="text-xs text-black/50">Tap to view on Instagram</p>
+                  <p className="text-sm font-semibold text-black">Post #{idx + 1}</p>
+                  <p className="text-xs text-black/50">View on Instagram</p>
                 </div>
                 <svg className="h-4 w-4 shrink-0 text-black/30 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
