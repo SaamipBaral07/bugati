@@ -10,6 +10,7 @@ export default function ContactPage() {
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
   const [startedAt, setStartedAt] = useState<number>(Date.now());
+  const [countryCode, setCountryCode] = useState("+61");
 
   useEffect(() => {
     setStartedAt(Date.now());
@@ -23,16 +24,18 @@ export default function ContactPage() {
 
     const form = new FormData(e.currentTarget);
 
+    const phoneNumber = form.get("phone");
+    const fullPhone = phoneNumber ? `${countryCode} ${phoneNumber}` : "";
+
     const payload = {
       fullName: form.get("fullName"),
       email: form.get("email"),
-      phone: form.get("phone"),
+      phone: fullPhone,
       eventType: form.get("eventType"),
       eventDate: form.get("eventDate"),
       location: form.get("location"),
       guests: form.get("guests"),
       message: form.get("message"),
-
       website: form.get("website"), // honeypot
       startedAt,
     };
@@ -149,14 +152,15 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Image Placeholder */}
+            {/* Perth Map */}
             <div className="mt-10">
               <div className="overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-50">
-                <div className="flex aspect-[16/10] items-center justify-center">
-                  <p className="text-sm text-neutral-500">
-                    Image Placeholder (add later)
-                  </p>
-                </div>
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=115.7417%2C-32.1063%2C116.0654%2C-31.8048&layer=mapnik&marker=-31.9523%2C115.8613"
+                  className="aspect-[16/10] w-full border-0"
+                  loading="lazy"
+                  title="Perth, Australia Map"
+                />
               </div>
             </div>
           </div>
@@ -193,11 +197,33 @@ export default function ContactPage() {
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
-              <input
-                name="phone"
-                placeholder="Phone (optional)"
-                className="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-neutral-900 outline-none placeholder:text-neutral-400 focus:border-neutral-900"
-              />
+              <div className="flex gap-2">
+                <select
+                  value={countryCode}
+                  onChange={(e) => setCountryCode(e.target.value)}
+                  className="w-32 rounded-2xl border border-neutral-300 bg-white px-3 py-3 text-neutral-900 outline-none focus:border-neutral-900"
+                >
+                  <option value="+61">🇦🇺 +61</option>
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+91">🇮🇳 +91</option>
+                  <option value="+977">🇳🇵 +977</option>
+                  <option value="+86">🇨🇳 +86</option>
+                  <option value="+81">🇯🇵 +81</option>
+                  <option value="+49">🇩🇪 +49</option>
+                  <option value="+33">🇫🇷 +33</option>
+                  <option value="+39">🇮🇹 +39</option>
+                  <option value="+34">🇪🇸 +34</option>
+                  <option value="+64">🇳🇿 +64</option>
+                  <option value="+65">🇸🇬 +65</option>
+                </select>
+                <input
+                  name="phone"
+                  type="tel"
+                  placeholder="Phone (optional)"
+                  className="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-neutral-900 outline-none placeholder:text-neutral-400 focus:border-neutral-900"
+                />
+              </div>
               <select
                 name="eventType"
                 required
@@ -221,8 +247,9 @@ export default function ContactPage() {
               />
               <input
                 name="location"
-                placeholder="Event Location (optional)"
+                placeholder="Event Location * "
                 className="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-neutral-900 outline-none placeholder:text-neutral-400 focus:border-neutral-900"
+                required
               />
             </div>
 
