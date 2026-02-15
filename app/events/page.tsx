@@ -140,7 +140,7 @@ export default function EventsPage() {
                 {/* Subtle gradient overlay on mobile for legibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent md:hidden" />
                 {/* Featured badge */}
-                <div className="absolute left-5 top-5 rounded-full bg-amber-500 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-neutral-950 shadow-lg">
+                <div className="absolute left-5 top-5 rounded-full bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-neutral-950 shadow-lg">
                   Most Popular
                 </div>
               </div>
